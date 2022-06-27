@@ -14,14 +14,14 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Auto Assign product to sale category
- * Plugin URI:        aatsc
+ * Plugin URI:        https://github.com/mrakisp/Auto-Assign-Product-to-sale-category
  * Description:       Set Sale price to a product or remove sale price from a product and it will be automatically added/removed to/from selected Sale Category
  * Version:           1.0.0
  * Author:            Akis Paneras
  * Author URI:        https://github.com/mrakisp
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       aatsc
+ * Text Domain:       https://github.com/mrakisp/Auto-Assign-Product-to-sale-category
  * Domain Path:       /languages
  */
 
