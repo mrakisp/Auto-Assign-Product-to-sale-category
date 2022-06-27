@@ -119,19 +119,15 @@ class Aatsc_Admin {
 
 	//LOAD VIEWS
 	public function options_page_content() {
-
 		include_once( 'partials/aatsc-admin-display.php' );
-
 	}
 
 	public function autosale_register_setting() {
-
 		include_once( 'partials/select-cat-view.php' );
-
 	}
 
 	/**
-	 * Initialize the settings page
+	 * Assign / Unassign product to sale category on save
 	 *
 	 * @since    1.0.0
 	 * @access   public
@@ -151,7 +147,6 @@ class Aatsc_Admin {
 		$term_id = (int) get_option( 'sale_category_selected' ); // <== targeted product category term ID
 		$taxonomy = 'product_cat'; // The taxonomy for Product category
 
-		// If the product has not "93" category id and if "93" category exist
 		if ( ! has_term( $term_id, 'product_cat', $post_id ) && term_exists( $term_id, $taxonomy ) && $product->is_on_sale() ){
 			wp_set_post_terms( $post_id, $term_id, $taxonomy, true ); // we set this product category
 		}else if( has_term( $term_id, 'product_cat', $post_id ) && term_exists( $term_id, $taxonomy ) && !$product->is_on_sale() ){
