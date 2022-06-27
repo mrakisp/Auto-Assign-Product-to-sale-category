@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Auto Assign product to sale category
  * Plugin URI:        https://github.com/mrakisp/Auto-Assign-Product-to-sale-category
- * Description:       Set Sale price to a product or remove sale price from a product and it will be automatically added/removed to/from selected Sale Category
+ * Description:       Set/Remove Sale price to a product and it will be automatically added/removed to/from selected Sale Category
  * Version:           1.0.0
  * Author:            Akis Paneras
  * Author URI:        https://github.com/mrakisp
