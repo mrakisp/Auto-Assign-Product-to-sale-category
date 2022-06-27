@@ -135,7 +135,7 @@ class Aatsc_Admin {
 	public function auto_add_product_category($post_id, $post, $update) {
 		if ( $post->post_type != 'product') return; // Only products
 
-		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+		// If this is an autosave, our form has not been submitted, so don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return $post_id;
 
@@ -143,12 +143,18 @@ class Aatsc_Admin {
 		if ( ! current_user_can( 'edit_product', $post_id ) )
 			return $post_id;
 
-		$product = new WC_Product( $post->ID );
+		$product = wc_get_product();
+		if ( $product->is_type( 'simple' ) ) {
+			$product = new WC_Product( $post->ID );
+		}
+		else {
+			$product = new WC_Product_Variable( $post->ID );
+		}
 		$term_id = (int) get_option( 'sale_category_selected' ); // <== targeted product category term ID
 		$taxonomy = 'product_cat'; // The taxonomy for Product category
 
 		if ( ! has_term( $term_id, 'product_cat', $post_id ) && term_exists( $term_id, $taxonomy ) && $product->is_on_sale() ){
-			wp_set_post_terms( $post_id, $term_id, $taxonomy, true ); // we set this product category
+			wp_set_post_terms( $post_id, $term_id, $taxonomy, true ); //  set this product category
 		}else if( has_term( $term_id, 'product_cat', $post_id ) && term_exists( $term_id, $taxonomy ) && !$product->is_on_sale() ){
 			wp_remove_object_terms( $post_id, $term_id, 'product_cat' );
 		}
