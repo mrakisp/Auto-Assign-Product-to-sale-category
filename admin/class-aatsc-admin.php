@@ -133,6 +133,7 @@ class Aatsc_Admin {
 	 * @access   public
 	 */
 	public function auto_add_product_category($post_id, $post, $update) {
+		global $post;
 		if ( $post->post_type != 'product') return; // Only products
 
 		// If this is an autosave, our form has not been submitted, so don't want to do anything.
